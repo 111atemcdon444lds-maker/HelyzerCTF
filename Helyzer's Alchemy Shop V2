@@ -14,7 +14,7 @@ void banner() {
 }
 
 void secret() {
-    system("/bin/sh");  // flag is on server
+    system("/bin/sh");
 }
 
 void r() {
