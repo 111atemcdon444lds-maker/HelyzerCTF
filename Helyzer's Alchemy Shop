@@ -1,81 +1,73 @@
-/*
-Good luck...
-C++
-*/
-
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <string>
 #include <thread>
 #include <chrono>
 
 using namespace std;
 
-string a(const vector<int>& b,int c){
-    string d;d.reserve(b.size());
-    for(int e:b)d.push_back((char)(e^c));
-    return d;
-}
-
-int f(long long g,long long h){
-    return (g%97)+(h%53);
-}
-
-void x(long long g,long long h){
-    vector<int> i={
-        125,80,89,76,79,80,71,
-        118,97,115,78,125,6,89,
-        76,79,6,71,70,106,1,89,
-        86,125,6,120,2,106,102,
-        93,5,69,72
+void r(){
+    vector<int> a={
+        125,80,89,76,79,80,71,118,
+        97,115,78,125,6,89,76,79,6,
+        71,70,106,1,89,86,125,6,120,
+        2,106,102,93,5,69,72
     };
 
-    int j=(int)((g^h)%256);
-    cout<<a(i,j)<<endl;
+    int b=42;
+    cout<<"\n[!] SERVER LOG: Transaction authorized. Dispensing Flag...\n";
+
+    for(int c:a)cout<<(char)(c^b);
+    cout<<endl;
 }
 
 int main(){
-    long long k=100,l=0;
-    int m=0;
+    long long x=100;
+    int y=1000000;
 
-    cout<<"Welcome to my Alchemy Shop!"<<endl;
-    this_thread::sleep_for(chrono::seconds(1));
+    cout<<"--- Illegal Alchemy Black Market ---\n";
+    cout<<"Only the elite can afford our Flag Potion.\n";
 
     while(true){
-        cout<<"\n[1] Buy potion\n[2] Buy Flag\n[3] Stock\n[4] Exit\n";
-        char n;cin>>n;
+        cout<<"\nYour Balance: $"<<x<<"\n";
+        cout<<"1. Buy Flag Potion ($1,000,000)\n";
+        cout<<"2. Exit\n> ";
 
-        if(n=='1'){
-            int o;
-            cout<<"Price $5\nAmount: ";
-            cin>>o;
+        int z;
+        cin>>z;
 
-            if(o<=0||o>100)continue;
+        if(z==1){
+            cout<<"How many potions would you like to buy? ";
+            int w;
+            cin>>w;
 
-            k-=o;
-            l+=o*3;
-            m=(m+o)%10;
-        }
+            int v=w*y;
 
-        if(n=='2'){
-            this_thread::sleep_for(chrono::seconds(1));
-
-            if(((l^k)==13371337) && f(l,k)==42 && m==7 && l%7==0){
-                x(l,k);
-                l-=1000000;
-            }else{
-                cout<<"Denied"<<endl;
+            if(w<=0){
+                cout<<"The Alchemist glares at you. No tricks!\n";
+                continue;
             }
-        }
 
-        if(n=='3'){
-            cout<<k<<endl;
-        }
+            cout<<"Calculating cost for "<<w<<" potions...\n";
+            this_thread::sleep_for(chrono::milliseconds(500));
 
-        if(n=='4'){
-            cout<<"Bye"<<endl;
-            return 0;
+            cout<<"Total cost: $"<<v<<"\n";
+
+            if(x>=v){
+                x-=v;
+                cout<<"Transaction complete.\n";
+
+                if(x>1000000000){
+                    r();
+                }
+            } else {
+                cout<<"Error: Insufficient funds. You need $"<<v<<"\n";
+            }
+        } else {
+            cout<<"Goodbye, peasant.\n";
+            break;
         }
-    cout << m << endl;
     }
+
+    return 0;
 }
