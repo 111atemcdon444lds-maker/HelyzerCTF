@@ -14,10 +14,10 @@ def _0(O, K):
 _1="SGVseXplckNURntEMG50XzFvMGtfaDNyZX0="
 
 _2=[
-    98, 79, 70, 83, 80, 79, 88, 105, 
-    126, 108, 81, 30, 24, 117, 27, 89, 117, 
-    126, 66, 25, 117, 30, 68, 89, 93, 25, 
-    88, 117, 94, 26, 117, 111, 92, 25, 120, 
+    98, 79, 70, 83, 80, 79, 88, 105,
+    126, 108, 81, 30, 24, 117, 27, 89, 117,
+    126, 66, 25, 117, 30, 68, 89, 93, 25,
+    88, 117, 94, 26, 117, 111, 92, 25, 120,
     83, 126, 98, 27, 68, 77, 11, 87
 ]
 
@@ -36,19 +36,17 @@ def _f():
     print(_b.b64decode(_1).decode()[:10]+"...")
     _s.exit()
 
-    print("A game is about to begin...")
-    _g=input("[C]continue [E]Exit: ").lower()
-
-    if _g=="e":
-        print("Lame.")
-        _s.exit()
 def GameStart():
     print("A game is about to start...")
-    C=input("Start? [Yes] [No] ").lower()
+    C=input("Start? [Yes] [No] ").strip().lower()
 
-    if C == "No":
+    if C not in ["yes", "no"]:
+        print("Invalid input. Terminating session...")
+        _s.exit()
+
+    if C == "no":
         print("Lame")
-        sys.exit
+        _s.exit()
 
     print("\nHint: I really like the number 6")
     _t.sleep(1)
@@ -60,13 +58,13 @@ def GameStart():
     _t.sleep(2)
 
     for _h in range(6):
-        _i=_r.randint(1,6)
-        print("Roll:",_i)
+        _i = _r.randint(1, 6)
+        print("Roll:", _i)
         _t.sleep(1)
 
-        if _i==6:
+        if _i == 6:
             print("\nUh oh...")
-            for _j in range(10,0,-1):
+            for _j in range(10, 0, -1):
                 print(_j)
                 _t.sleep(0.3)
             print("DELETING SYSTEM32\n")
@@ -74,9 +72,13 @@ def GameStart():
 
         print("Lucky...")
 
-        _k=input("would you like to continue? [Yes] [No] ").lower()
+        _k = input("would you like to continue? [Yes] [No] ").strip().lower()
 
-        if _k=="no":
+        if _k not in ["yes", "no"]:
+            print("Invalid input detected. Aborting run...")
+            _s.exit()
+
+        if _k == "no":
             print("Womp Womp")
             _s.exit()
 
@@ -88,12 +90,12 @@ def GameStart():
     _t.sleep(1)
     print("Access granted...\n")
 
-    _l=input("Do you want it? ").lower()
+    _l = input("Do you want it? (yes/no): ").strip().lower()
 
-    if _l=="yes":
+    if _l == "yes":
         _f()
 
-    elif _l==str(_d//7):
+    elif _l == str(_d // 7):
         _e()
 
     else:
