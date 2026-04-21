@@ -94,7 +94,7 @@ def GameStart():
        FlagCall()
        sys.exit()
 
-   elif p == str(_4RX32//7):
+   elif p == "_4RX32//7":
        _03Ex()
       
    else:
