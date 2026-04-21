@@ -8,9 +8,10 @@ This repo contains custom-built challenges inspired by:
 - Binary/pwn-style thinking
 - Cryptography & obfuscation
 - Miscellaneous puzzle-style programming problems
-- Good Luck
 ---
 
 ## Structure
 
 Each folder contains a standalone challenge:
+
+## GoodLuck
