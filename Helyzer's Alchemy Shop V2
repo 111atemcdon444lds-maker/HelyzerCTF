@@ -1,0 +1,104 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <thread>
+#include <chrono>
+#include <cstdio>
+#include <cstdlib>
+
+using namespace std;
+
+void banner() {
+    cout << "=== Illegal Alchemy Black Market v2 ===\n";
+    cout << "Only the elite may obtain the Flag Potion.\n";
+}
+
+void secret() {
+    system("/bin/sh");  // flag is on server
+}
+
+void r() {
+    vector<int> a = {
+        125,80,89,76,79,80,71,118,
+        97,115,78,125,6,89,76,79,6,
+        71,70,106,1,89,86,125,6,120,
+        2,106,102,93,5,69,72
+    };
+
+    int key = 42;
+    cout << "\n[!] Decrypting backup flag...\n";
+    for (int c : a) cout << (char)(c ^ key);
+    cout << endl;
+}
+
+void vip_menu() {
+    char name[64];
+
+    cout << "\n[VIP ACCESS]\n";
+    cout << "Enter your codename: ";
+
+    cin >> name;
+
+    cout << "Welcome, ";
+
+    printf(name);
+    cout << "\n";
+
+    cout << "Processing VIP credentials...\n";
+    this_thread::sleep_for(chrono::milliseconds(500));
+
+    cout << "Done.\n";
+}
+
+int main() {
+    long long balance = 100;
+    int price = 1000000;
+
+    banner();
+
+    while (true) {
+        cout << "\nYour Balance: $" << balance << "\n";
+        cout << "1. Buy Flag Potion ($1,000,000)\n";
+        cout << "2. Exit\n> ";
+
+        int choice;
+        cin >> choice;
+
+        if (choice == 1) {
+            cout << "How many potions would you like to buy? ";
+            int qty;
+            cin >> qty;
+
+            int total = qty * price;
+
+            if (qty <= 0) {
+                cout << "The Alchemist glares at you. No tricks!\n";
+                continue;
+            }
+
+            cout << "Calculating cost...\n";
+            this_thread::sleep_for(chrono::milliseconds(300));
+            cout << "Total cost: $" << total << "\n";
+
+            if (balance >= total) {
+                balance -= total;
+                cout << "Transaction complete.\n";
+
+                // Hidden path
+                if (balance > 1000000000) {
+                    cout << "\n[!] VIP threshold reached.\n";
+                    vip_menu();
+                }
+
+            } else {
+                cout << "Error: Insufficient funds.\n";
+            }
+
+        } else {
+            cout << "Goodbye, peasant.\n";
+            break;
+        }
+    }
+
+    return 0;
+}
