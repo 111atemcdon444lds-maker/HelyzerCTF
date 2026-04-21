@@ -8,7 +8,7 @@ This repo contains custom-built challenges inspired by:
 - Binary/pwn-style thinking
 - Cryptography & obfuscation
 - Miscellaneous puzzle-style programming problems
--Good Luck
+- Good Luck
 ---
 
 ## Structure
