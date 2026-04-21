@@ -1,8 +1,3 @@
-"""
-Note: This is fake it will not actually harm your computer
-Don't try to delete system32 :)
-"""
-
 import time as _t
 import random as _r
 import base64 as _b
@@ -67,7 +62,7 @@ def GameStart():
             for _j in range(10, 0, -1):
                 print(_j)
                 _t.sleep(0.3)
-            print("DELETING SYSTEM32\n")
+            print("Aborting Run")
             _s.exit()
 
         print("Lucky...")
@@ -80,6 +75,8 @@ def GameStart():
 
         if _k == "no":
             print("Womp Womp")
+            _t.sleep(1)
+            print("Aborting Run Anywways")
             _s.exit()
 
         print("Here we go again...\n")
